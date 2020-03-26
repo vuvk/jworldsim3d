@@ -7,16 +7,18 @@ import jworldsim3d.classes.wWindow;
 import jworldsim3d.structs.wColor4s;
 import jworldsim3d.structs.wVector2i;
 
-
 /**
- * Test
- * @author Vuvk
+'' Пример 01: Hello World
+'' Этот простой пример открывает окно WorldSim3D, показывает текст Hello World
+'' на экране и ожидает когда пользователь закроет приложение.
+'' ----------------------------------------------------------------------------
+ * @author Nikolas
+ * @author Адаптация Vuvk
  */
 public class Example01 {
 
     public static void main(String[] args) {    
-        int prevFps = 0, 
-            curFps = 0;   
+        int prevFps = 0, curFps;   
         String wndCaption = "Example 01";
         
         wEngine.start();
@@ -24,7 +26,7 @@ public class Example01 {
         wFont font = new wFont("myfont.bmp");
         wVector2i fromPos  = new wVector2i(120, 80);
         wVector2i toPos    = new wVector2i(250, 96);
-        wColor4s backColor = new wColor4s(255, 255, 0, 0);
+        wColor4s backColor = wColor4s.ORANGE;
         wColor4s fontColor = new wColor4s(255, 0, 125, 0);
                 
         wWindow.setCaption(wndCaption);
@@ -35,7 +37,6 @@ public class Example01 {
             font.draw("Hello, Java!", fromPos, toPos, fontColor);
             wScene.end();
             
-            wEngine.yield();
             wEngine.closeByEsc();
             
             /// update FPS
