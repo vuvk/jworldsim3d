@@ -7,6 +7,7 @@ import lombok.*;
  *
  * @author Vuvk
  */
+@AllArgsConstructor @NoArgsConstructor
 public class wColor4s extends wColor4 {
     
     public final static wColor4s ZERO = new wColor4s(0,0,0,0);
@@ -38,19 +39,12 @@ public class wColor4s extends wColor4 {
     public final static wColor4s ORANGERED = new wColor4s(255,255,69,0);
     
     @Getter @Setter 
-    public byte alpha, 
-                red, 
-                green, 
-                blue;
-
-    public wColor4s(byte alpha, byte red, byte green, byte blue) {
-        this.alpha = alpha;
-        this.red   = red;
-        this.green = green;
-        this.blue  = blue;        
-    }
+    public short alpha, 
+                 red, 
+                 green, 
+                 blue;
     
     public wColor4s(int alpha, int red, int green, int blue) {
-        this((byte)alpha, (byte)red, (byte)green, (byte)blue);
+        this((short)alpha, (short)red, (short)green, (short)blue);
     }
 }
