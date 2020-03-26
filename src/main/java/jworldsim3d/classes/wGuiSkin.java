@@ -1,6 +1,7 @@
 package jworldsim3d.classes;
 
 import com.sun.jna.Pointer;
+import jworldsim3d.enums.gui.wGuiDefaultFont;
 import jworldsim3d.structs.wColor4s;
 
 /**
@@ -41,8 +42,16 @@ public class wGuiSkin extends ClassWrap {
         ws3d.wGuiSkinSetDefaultText(pointer, guiDefaultText, (newText + '\0').toCharArray());
     }
     
+    public void setFont(wFont font) {
+        setFont(font, wGuiDefaultFont.wGDF_DEFAULT);
+    }
+    
     public void setFont(wFont font, int guiDefaultFont) {
         ws3d.wGuiSkinSetFont(pointer, font.getPointer(), guiDefaultFont);
+    }
+    
+    public wFont getFont() {
+        return getFont(wGuiDefaultFont.wGDF_DEFAULT);
     }
     
     public wFont getFont(int guiDefaultFont) {

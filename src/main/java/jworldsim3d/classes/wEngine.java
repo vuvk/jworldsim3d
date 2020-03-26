@@ -12,12 +12,12 @@ public final class wEngine {
     private final static LibWS3D ws3d = LibWS3D.INSTANCE;
     
     public static boolean start(int iDevice,
-                                      wVector2u size,
-                                      int iBPP,
-                                      boolean boFullscreen,
-                                      boolean boShadows,
-                                      boolean boCaptureEvents,
-                                      boolean vsync) {
+                                wVector2u size,
+                                int iBPP,
+                                boolean boFullscreen,
+                                boolean boShadows,
+                                boolean boCaptureEvents,
+                                boolean vsync) {
         return ws3d.wEngineStart(iDevice, size, iBPP, boFullscreen, boShadows, boCaptureEvents, vsync);
     }
     
