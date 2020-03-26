@@ -29,7 +29,7 @@ public class wFont extends ClassWrap {
     
     public void draw(String text, wVector2i fromPos, wVector2i toPos, wColor4s color) {
         if (pointer != null) {
-            ws3d.wFontDraw(pointer, (text + '\0').toCharArray(), fromPos, toPos, color);
+            ws3d.wFontDraw(pointer, (text + '\0').toCharArray(), fromPos.ByValue(), toPos.ByValue(), color.ByValue());
         }
     }
 

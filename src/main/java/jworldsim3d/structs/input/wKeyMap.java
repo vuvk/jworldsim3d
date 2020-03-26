@@ -13,7 +13,7 @@ import lombok.*;
  * @author Vuvk
  */
 @AllArgsConstructor @NoArgsConstructor
-public class wKeyMap extends Structure implements Structure.ByValue {
+public class wKeyMap extends Structure {
     private static final List<String> FIELDS = Arrays.asList("keyAction", 
                                                              "keyCode");
     
@@ -35,4 +35,7 @@ public class wKeyMap extends Structure implements Structure.ByValue {
     protected List<String> getFieldOrder() {
         return FIELDS;
     }    
+    
+    public static class ByReference extends wKeyMap implements Structure.ByReference {};
+    public static class ByValue extends wKeyMap implements Structure.ByValue {};
 }

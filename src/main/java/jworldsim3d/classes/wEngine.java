@@ -11,6 +11,14 @@ import jworldsim3d.wrapper.LibWS3D;
 public final class wEngine {
     private final static LibWS3D ws3d = LibWS3D.INSTANCE;
     
+    public static boolean start() { 
+        return start(wDriverTypes.wDRT_SOFTWARE, wVector2u.DEFAULT_SCREENSIZE); 
+    }
+    
+    public static boolean start(int iDevice, wVector2u size) { 
+        return start(iDevice, size, 32, false, true, true, true); 
+    }
+    
     public static boolean start(int iDevice,
                                 wVector2u size,
                                 int iBPP,
@@ -18,15 +26,7 @@ public final class wEngine {
                                 boolean boShadows,
                                 boolean boCaptureEvents,
                                 boolean vsync) {
-        return ws3d.wEngineStart(iDevice, size, iBPP, boFullscreen, boShadows, boCaptureEvents, vsync);
-    }
-    
-    public static boolean start(int iDevice, wVector2u size) { 
-        return start(iDevice, size, 32, false, true, true, true); 
-    }
-    
-    public static boolean start() { 
-        return start(wDriverTypes.wDRT_SOFTWARE, wVector2u.DEFAULT_SCREENSIZE); 
+        return ws3d.wEngineStart(iDevice, size.ByValue(), iBPP, boFullscreen, boShadows, boCaptureEvents, vsync);
     }
     
     public static void closeByEsc() {

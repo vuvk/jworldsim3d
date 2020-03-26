@@ -11,7 +11,7 @@ import lombok.*;
  * @author Vuvk
  */
 @AllArgsConstructor @NoArgsConstructor
-public class wKeyEvent extends Structure implements Structure.ByValue {
+public class wKeyEvent extends Structure {
     private static final List<String> FIELDS = Arrays.asList("keyCode", 
                                                              "keyDirection",
                                                              "isShift",
@@ -30,4 +30,7 @@ public class wKeyEvent extends Structure implements Structure.ByValue {
     protected List<String> getFieldOrder() {
         return FIELDS;
     }
+    
+    public static class ByReference extends wKeyEvent implements Structure.ByReference {};
+    public static class ByValue extends wKeyEvent implements Structure.ByValue {};
 }

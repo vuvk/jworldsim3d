@@ -1,5 +1,6 @@
 package jworldsim3d.structs;
 
+import com.sun.jna.Structure;
 import jworldsim3d.structs.interfaces.wColor4;
 import lombok.*;
 
@@ -47,4 +48,34 @@ public class wColor4s extends wColor4 {
     public wColor4s(int alpha, int red, int green, int blue) {
         this((short)alpha, (short)red, (short)green, (short)blue);
     }
+    
+    public ByReference ByReference() {
+        return new ByReference(this);
+    }
+    
+    public ByValue ByValue() {
+        return new ByValue(this);
+    }
+                
+    public static class ByReference extends wColor4s implements Structure.ByReference {
+        public ByReference() {
+        }
+        public ByReference(int alpha, int red, int green, int blue) {
+            super(alpha, red, green ,blue);
+        }
+        public ByReference(wColor4s color) {
+            super(color.alpha, color.red, color.green, color.blue);
+        }
+    };
+                
+    public static class ByValue extends wColor4s implements Structure.ByValue {
+        public ByValue() {
+        }
+        public ByValue(int alpha, int red, int green, int blue) {
+            super(alpha, red, green ,blue);
+        }
+        public ByValue(wColor4s color) {
+            super(color.alpha, color.red, color.green, color.blue);
+        }
+    };
 }

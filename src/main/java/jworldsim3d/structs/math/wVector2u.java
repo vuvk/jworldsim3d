@@ -1,5 +1,7 @@
 package jworldsim3d.structs.math;
 
+import com.sun.jna.Structure;
+
 /**
  *
  * @author Vuvk

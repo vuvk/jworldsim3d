@@ -10,7 +10,7 @@ import jworldsim3d.structs.wColor4s;
  *
  * @author Vuvk
  */
-public class wGuiSkin extends ClassWrap {   
+public class wGuiSkin extends wGuiObject {   
     
     public wGuiSkin(Pointer pointer) {
         setPointer(pointer);
@@ -25,7 +25,7 @@ public class wGuiSkin extends ClassWrap {
     }
     
     public void setColor(int guiDefaultColor, wColor4s color) {
-        ws3d.wGuiSkinSetColor(pointer, guiDefaultColor, color);
+        ws3d.wGuiSkinSetColor(pointer, guiDefaultColor, color.ByValue());
     }
     
     public void setSize(int guiDefaultSize, int newSize) {
@@ -73,12 +73,5 @@ public class wGuiSkin extends ClassWrap {
         
     public int getType() {
         return ws3d.wGuiSkinGetType(pointer);
-    }
-    
-    @Override
-    protected void destroyPointer() {
-        if (pointer != null) {
-            // ?
-        }
-    }    
+    } 
 }

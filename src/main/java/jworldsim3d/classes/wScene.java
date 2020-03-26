@@ -11,7 +11,7 @@ public final class wScene {
     private final static LibWS3D ws3d = LibWS3D.INSTANCE;    
     
     public static boolean begin(wColor4s color) {
-        return ws3d.wSceneBegin(color);        
+        return ws3d.wSceneBegin(color.ByValue());        
     }
     
     public static boolean begin() {

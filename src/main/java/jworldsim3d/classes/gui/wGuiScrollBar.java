@@ -8,10 +8,10 @@ import jworldsim3d.structs.math.wVector2i;
  *
  * @author Vuvk
  */
-public class wGuiScrollBar extends ClassWrap {
+public class wGuiScrollBar extends wGuiObject {
     
     public wGuiScrollBar(boolean horizontal, wVector2i minPos, wVector2i maxPos) {
-        pointer = ws3d.wGuiScrollBarCreate(horizontal, minPos, maxPos);
+        pointer = ws3d.wGuiScrollBarCreate(horizontal, minPos.ByValue(), maxPos.ByValue());
     }
     
     public void setMaxValue(int max) {
@@ -52,12 +52,5 @@ public class wGuiScrollBar extends ClassWrap {
     
     public int getLargeStep() {
         return ws3d.wGuiScrollBarGetLargeStep(pointer);
-    }
-
-    @Override
-    protected void destroyPointer() {
-        if (pointer != null) {
-            //ws3d.wGuiObjectDestroy(pointer);
-        }
-    }    
+    } 
 }

@@ -11,7 +11,7 @@ import lombok.*;
  * @author Vuvk
  */
 @AllArgsConstructor @NoArgsConstructor
-public class wMouseEvent extends Structure implements Structure.ByValue {
+public class wMouseEvent extends Structure {
     @Getter @Setter public int mouseEventType;
     @Getter @Setter public float delta;
     @Getter @Setter public wVector2i position;
@@ -28,4 +28,7 @@ public class wMouseEvent extends Structure implements Structure.ByValue {
     protected List<String> getFieldOrder() {
         return FIELDS;
     }
+    
+    public static class ByReference extends wMouseEvent implements Structure.ByReference {};
+    public static class ByValue extends wMouseEvent implements Structure.ByValue {};
 }

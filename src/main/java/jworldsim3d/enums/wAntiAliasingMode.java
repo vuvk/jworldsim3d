@@ -1,4 +1,4 @@
-package jworldsim3d.enums.gui;
+package jworldsim3d.enums;
 
 /**
  *

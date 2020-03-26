@@ -10,14 +10,14 @@ import jworldsim3d.structs.wColor4s;
  *
  * @author Vuvk
  */
-public class wGuiLabel extends ClassWrap {
+public class wGuiLabel extends wGuiObject {
     
     public wGuiLabel(String text, wVector2i minPos, wVector2i maxPos) {
         this(text, minPos, maxPos, false, true);
     }
     
     public wGuiLabel(String text, wVector2i minPos, wVector2i maxPos, boolean boBorder, boolean boWordWrap) {
-        pointer = ws3d.wGuiLabelCreate((text + '\0').toCharArray(), minPos, maxPos, boBorder, boWordWrap);
+        pointer = ws3d.wGuiLabelCreate((text + '\0').toCharArray(), minPos.ByValue(), maxPos.ByValue(), boBorder, boWordWrap);
     }
     
     public wVector2i getTextSize() {
@@ -45,7 +45,7 @@ public class wGuiLabel extends ClassWrap {
     }
     
     public void setOverrideColor(wColor4s color) {
-        ws3d.wGuiLabelSetOverrideColor(pointer, color);
+        ws3d.wGuiLabelSetOverrideColor(pointer, color.ByValue());
     }
     
     public wColor4s getOverrideColor() {
@@ -81,17 +81,10 @@ public class wGuiLabel extends ClassWrap {
     }
     
     public void setBackgroundColor(wColor4s color) {
-        ws3d.wGuiLabelSetBackgroundColor(pointer, color);
+        ws3d.wGuiLabelSetBackgroundColor(pointer, color.ByValue());
     }
     
     public wColor4s getBackgroundColor() {
         return ws3d.wGuiLabelGetBackgroundColor(pointer);
-    }
-
-    @Override
-    protected void destroyPointer() {
-        if (pointer != null) {
-            //ws3d.wGuiObjectDestroy(pointer);
-        }
     }
 }

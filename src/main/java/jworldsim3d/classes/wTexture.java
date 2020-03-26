@@ -1,7 +1,7 @@
 package jworldsim3d.classes;
 
 import com.sun.jna.Pointer;
-import jworldsim3d.enums.gui.wAntiAliasingMode;
+import jworldsim3d.enums.wAntiAliasingMode;
 import jworldsim3d.structs.math.wVector2f;
 import jworldsim3d.structs.math.wVector2i;
 import jworldsim3d.structs.wColor4s;
@@ -17,7 +17,7 @@ public class wTexture extends ClassWrap {
     }
     
     public wTexture(String name, wVector2i size, int colorFormat) {
-        pointer = ws3d.wTextureCreate(name, size, colorFormat);
+        pointer = ws3d.wTextureCreate(name, size.ByValue(), colorFormat);
     }
     
     public wTexture(String path) {
@@ -46,7 +46,7 @@ public class wTexture extends ClassWrap {
     }
     
     public void draw(wVector2i pos, boolean useAlphaChannel, wColor4s color) {
-        ws3d.wTextureDraw(pointer, pos, useAlphaChannel, color);
+        ws3d.wTextureDraw(pointer, pos.ByValue(), useAlphaChannel, color.ByValue());
     }
     
     public void draw(wVector2i pos, wVector2f scale) {
@@ -54,7 +54,7 @@ public class wTexture extends ClassWrap {
     }
     
     public void draw(wVector2i pos, wVector2f scale, boolean useAlphaChannel) {
-        ws3d.wTextureDrawEx(pointer, pos, scale, useAlphaChannel);
+        ws3d.wTextureDrawEx(pointer, pos.ByValue(), scale.ByValue(), useAlphaChannel);
     }
     
     public void draw(wVector2i pos,
@@ -68,7 +68,7 @@ public class wTexture extends ClassWrap {
                      wVector2i toPos,
                      boolean useAlphaChannel,
                      wColor4s color) {
-        ws3d.wTextureDrawElement(pointer, pos, fromPos, toPos, useAlphaChannel, color);
+        ws3d.wTextureDrawElement(pointer, pos.ByValue(), fromPos.ByValue(), toPos.ByValue(), useAlphaChannel, color.ByValue());
     }
     
     public void draw(wVector2i destFromPos,
@@ -83,7 +83,7 @@ public class wTexture extends ClassWrap {
                      wVector2i sourceFromPos,
                      wVector2i sourceToPos,
                      boolean useAlphaChannel) {
-        ws3d.wTextureDrawElementStretch(pointer, destFromPos, destToPos, sourceFromPos, sourceToPos, useAlphaChannel);
+        ws3d.wTextureDrawElementStretch(pointer, destFromPos.ByValue(), destToPos.ByValue(), sourceFromPos.ByValue(), sourceToPos.ByValue(), useAlphaChannel);
     }
     
     public void draw(wVector2i pos,
@@ -109,7 +109,7 @@ public class wTexture extends ClassWrap {
                      boolean bFilter,
                      boolean tFilter,
                      boolean aFilter) {
-        ws3d.wTextureDrawAdvanced(pointer, pos, rotPoint, rotation, scale, useAlphaChannel, color, antiAliasingMode, bFilter, tFilter, aFilter);
+        ws3d.wTextureDrawAdvanced(pointer, pos.ByValue(), rotPoint.ByValue(), rotation, scale.ByValue(), useAlphaChannel, color.ByValue(), antiAliasingMode, bFilter, tFilter, aFilter);
     }
     
     public void draw(wVector2i pos,
@@ -133,7 +133,7 @@ public class wTexture extends ClassWrap {
                      boolean bilinearFilter,
                      boolean trilinearFilter,
                      boolean anisotropFilter) {
-        ws3d.wTextureDrawElementAdvanced(pointer, pos, fromPos, toPos, rotPoint, rotAngleDeg, scale, useAlphaChannel, color, antiAliasingMode, bilinearFilter, trilinearFilter, anisotropFilter);
+        ws3d.wTextureDrawElementAdvanced(pointer, pos.ByValue(), fromPos.ByValue(), toPos.ByValue(), rotPoint.ByValue(), rotAngleDeg, scale.ByValue(), useAlphaChannel, color.ByValue(), antiAliasingMode, bilinearFilter, trilinearFilter, anisotropFilter);
     }
 
     @Override

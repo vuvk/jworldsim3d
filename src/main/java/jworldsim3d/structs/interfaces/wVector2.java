@@ -8,7 +8,7 @@ import java.util.List;
  *
  * @author Vuvk
  */
-public abstract class wVector2 extends Structure implements Structure.ByValue {
+public abstract class wVector2 extends Structure {
     private static final List<String> FIELDS = Arrays.asList("x", "y");
     
     @Override

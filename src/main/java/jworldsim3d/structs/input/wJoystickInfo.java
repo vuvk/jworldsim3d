@@ -10,7 +10,7 @@ import lombok.*;
  * @author Vuvk
  */
 @AllArgsConstructor @NoArgsConstructor
-public class wJoystickInfo extends Structure implements Structure.ByValue {
+public class wJoystickInfo extends Structure {
     private static final List<String> FIELDS = Arrays.asList("axes", 
                                                              "buttons",
                                                              "joyId",
@@ -34,4 +34,7 @@ public class wJoystickInfo extends Structure implements Structure.ByValue {
     protected List<String> getFieldOrder() {
         return FIELDS;
     }    
+    
+    public static class ByReference extends wJoystickInfo implements Structure.ByReference {};
+    public static class ByValue extends wJoystickInfo implements Structure.ByValue {};
 }

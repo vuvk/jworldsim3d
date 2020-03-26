@@ -8,7 +8,7 @@ import java.util.List;
  *
  * @author Vuvk
  */
-public abstract class wColor4 extends Structure implements Structure.ByValue {    
+public abstract class wColor4 extends Structure {    
     private final static List<String> FIELDS = Arrays.asList("alpha", "red", "green", "blue");
         
     @Override
