@@ -5,8 +5,8 @@ import com.sun.jna.Pointer;
 import com.sun.jna.win32.StdCallLibrary;
 import jworldsim3d.Constants;
 import jworldsim3d.structs.wColor4s;
-import jworldsim3d.structs.wVector2i;
-import jworldsim3d.structs.wVector2u;
+import jworldsim3d.structs.math.wVector2i;
+import jworldsim3d.structs.math.wVector2u;
 
 /**
  *
@@ -123,61 +123,22 @@ public interface LibWS3D extends StdCallLibrary {
     boolean wGuiSave(String fileName, Pointer start);
     Pointer wGuiGetSkin();
     void wGuiSetSkin(Pointer skin);
-    /*
+    
     ///wGuiSkin///
     Pointer wGuiSkinCreate(int guiSkinSpace);
-    wColor4s wGuiSkinGetColor(Pointer skin, wGuiDefaultColor elementType);
-
-    void wGuiSkinSetColor(wGuiObject* skin,
-                          wGuiDefaultColor elementType,
-                          wColor4s color);
-
-    void wGuiSkinSetSize(wGuiObject* skin,
-                         wGuiDefaultSize sizeType,
-                         Int32 newSize);
-
-    Int32 wGuiSkinGetSize(wGuiObject* skin,
-                        wGuiDefaultSize sizeType);
-
-    const wchar_t* wGuiSkinGetDefaultText(wGuiObject* skin,
-                                          wGuiDefaultText txt);
-
-    void wGuiSkinSetDefaultText(wGuiObject* skin,
-                                wGuiDefaultText txt,
-                                const wchar_t* newText);
-
-    #ifdef __cplusplus
-    void wGuiSkinSetFont(wGuiObject* skin,
-                         wFont* font,
-                         wGuiDefaultFont fntType=wGDF_DEFAULT);
-    #else
-    void wGuiSkinSetFont(wGuiObject* skin,
-                         wFont* font,
-                         wGuiDefaultFont fntType);
-    #endif // __cplusplus
-
-    #ifdef __cplusplus
-    wFont* wGuiSkinGetFont(wGuiObject* skin,
-                           wGuiDefaultFont fntType=wGDF_DEFAULT);
-    #else
-    wFont* wGuiSkinGetFont(wGuiObject* skin,
-                           wGuiDefaultFont fntType);
-    #endif // __cplusplus
-
-    void wGuiSkinSetSpriteBank(wGuiObject* skin,
-                                                            wGuiObject* bank);
-
-    wGuiObject* wGuiSkinGetSpriteBank(wGuiObject* skin);
-
-    void wGuiSkinSetIcon(wGuiObject* skin,
-                         wGuiDefaultIcon icn,
-                         UInt32 index);
-
-    UInt32 wGuiSkinGetIcon(wGuiObject* skin,
-                                 wGuiDefaultIcon icn);
-
-    wGuiSkinSpace wGuiSkinGetType(wGuiObject* skin);
-    */
+    wColor4s wGuiSkinGetColor(Pointer skin, int guiDefaultColor);
+    void wGuiSkinSetColor(Pointer skin, int guiDefaultColor, wColor4s color);
+    void wGuiSkinSetSize(Pointer skin, int guiDefaultSize, int newSize);
+    int wGuiSkinGetSize(Pointer skin, int guiDefaultSize);
+    char[] wGuiSkinGetDefaultText(Pointer skin, int guiDefaultText);
+    void wGuiSkinSetDefaultText(Pointer skin, int guiDefaultText, char[] newText);
+    void wGuiSkinSetFont(Pointer skin, Pointer font, int guiDefaultFont);
+    Pointer wGuiSkinGetFont(Pointer skin, int guiDefaultFont);
+    void wGuiSkinSetSpriteBank(Pointer skin, Pointer bank);
+    Pointer wGuiSkinGetSpriteBank(Pointer skin);
+    void wGuiSkinSetIcon(Pointer skin, int guiDefaultIcon, int index);
+    int wGuiSkinGetIcon(Pointer skin, int guiDefaultIcon);
+    /*wGuiSkinSpace*/ int wGuiSkinGetType(Pointer skin);
     
     
     ////////////////////////////////////////////////
