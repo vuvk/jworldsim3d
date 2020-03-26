@@ -165,6 +165,19 @@ public interface LibWS3D extends StdCallLibrary {
     void wGuiLabelSetBackgroundColor(Pointer obj, wColor4s color);
     wColor4s wGuiLabelGetBackgroundColor(Pointer obj);
     
+    ///wGuiScrollBar
+    Pointer wGuiScrollBarCreate(boolean Horizontal, wVector2i minPos, wVector2i maxPos);
+    void wGuiScrollBarSetMaxValue(Pointer scroll, int max);
+    int wGuiScrollBarGetMaxValue(Pointer scroll);
+    void wGuiScrollBarSetMinValue(Pointer scroll, int min);
+    int wGuiScrollBarGetMinValue(Pointer scroll);
+    void wGuiScrollBarSetValue(Pointer scroll, int value);
+    int wGuiScrollBarGetValue(Pointer scroll);
+    void wGuiScrollBarSetSmallStep(Pointer scroll, int step);
+    int wGuiScrollBarGetSmallStep(Pointer scroll);
+    void wGuiScrollBarSetLargeStep(Pointer scroll, int step);
+    int wGuiScrollBarGetLargeStep(Pointer scroll);
+    
     
     ////////////////////////////////////////////////
     /// wWindow
