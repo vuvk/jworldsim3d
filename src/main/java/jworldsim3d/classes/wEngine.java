@@ -1,7 +1,7 @@
 package jworldsim3d.classes;
 
 import jworldsim3d.enums.wDriverTypes;
-import jworldsim3d.structs.wVector2u;
+import jworldsim3d.structs.math.wVector2u;
 import jworldsim3d.wrapper.LibWS3D;
 
 /**

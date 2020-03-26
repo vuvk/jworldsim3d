@@ -1,27 +1,20 @@
 package jworldsim3d.classes;
 
-import com.sun.jna.Pointer;
 import jworldsim3d.structs.wColor4s;
-import jworldsim3d.structs.wVector2i;
-import jworldsim3d.wrapper.LibWS3D;
+import jworldsim3d.structs.math.wVector2i;
 
 /**
  *
  * @author Vuvk
  */
-public class wFont {
-    private final static LibWS3D ws3d = LibWS3D.INSTANCE;  
-    
-    Pointer pointer = null;
-    
+public class wFont extends ClassWrap {    
     public wFont(String path) {
         load(path);
     }
     
     public void load(String path) {
-        if (pointer != null) {
-            ws3d.wFontDestroy(pointer);
-        }
+        destroyPointer();
+            
         pointer = ws3d.wFontLoad(path);
         if (pointer == null) {
             System.out.println("Error when loading '" + path + "'");
@@ -35,8 +28,7 @@ public class wFont {
     }
 
     @Override
-    protected void finalize() throws Throwable {
-        super.finalize();
+    protected void destroyPointer() {
         if (pointer != null) {
             ws3d.wFontDestroy(pointer);
         }

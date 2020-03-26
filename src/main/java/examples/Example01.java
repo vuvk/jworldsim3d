@@ -5,7 +5,7 @@ import jworldsim3d.classes.wFont;
 import jworldsim3d.classes.wScene;
 import jworldsim3d.classes.wWindow;
 import jworldsim3d.structs.wColor4s;
-import jworldsim3d.structs.wVector2i;
+import jworldsim3d.structs.math.wVector2i;
 
 /**
 '' Пример 01: Hello World
