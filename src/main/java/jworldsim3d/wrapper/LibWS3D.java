@@ -4,6 +4,7 @@ import com.sun.jna.Native;
 import com.sun.jna.Pointer;
 import com.sun.jna.win32.StdCallLibrary;
 import jworldsim3d.Constants;
+import jworldsim3d.structs.math.wVector2f;
 import jworldsim3d.structs.wColor4s;
 import jworldsim3d.structs.math.wVector2i;
 import jworldsim3d.structs.math.wVector2u;
@@ -74,7 +75,7 @@ public interface LibWS3D extends StdCallLibrary {
     String wTextureGetFullName(Pointer texture);
     String wTextureGetInternalName(Pointer texture);
     void wTextureDraw(Pointer texture, wVector2i pos, boolean useAlphaChannel, wColor4s color);
-//    void wTextureDrawEx(Pointer texture, wVector2i pos, wVector2f scale, boolean useAlphaChannel);
+    void wTextureDrawEx(Pointer texture, wVector2i pos, wVector2f scale, boolean useAlphaChannel);
     void wTextureDrawMouseCursor(Pointer texture);
     void wTextureDrawElement(Pointer texture,
                              wVector2i pos,
@@ -88,30 +89,30 @@ public interface LibWS3D extends StdCallLibrary {
                                     wVector2i sourceFromPos,
                                     wVector2i sourceToPos,
                                     boolean useAlphaChannel);
- /*   void wTextureDrawAdvanced(Pointer texture,
-                                       wVector2i pos,
-                                       wVector2i rotPoint,
-                                       float rotation,
-                                       wVector2f scale,
-                                       boolean useAlphaChannel,
-                                       wColor4s color,
-                                       wAntiAliasingMode aliasMode,
-                                       boolean bFilter,
-                                       boolean tFilter,
-                                       boolean aFilter);
+    void wTextureDrawAdvanced(Pointer texture,
+                              wVector2i pos,
+                              wVector2i rotPoint,
+                              float rotation,
+                              wVector2f scale,
+                              boolean useAlphaChannel,
+                              wColor4s color,
+                              int antiAliasingMode,
+                              boolean bFilter,
+                              boolean tFilter,
+                              boolean aFilter);
     void wTextureDrawElementAdvanced(Pointer texture,
-                                   wVector2i pos,
-                                   wVector2i fromPos,
-                                   wVector2i toPos,
-                                   wVector2i rotPoint,
-                                   float rotAngleDeg,
-                                   wVector2f scale,
-                                   boolean useAlphaChannel,
-                                   wColor4s color,
-                                   wAntiAliasingMode aliasMode,
-                                   boolean bilinearFilter,
-                                   boolean trilinearFilter,
-                                   boolean anisotropFilter);*/
+                                     wVector2i pos,
+                                     wVector2i fromPos,
+                                     wVector2i toPos,
+                                     wVector2i rotPoint,
+                                     float rotAngleDeg,
+                                     wVector2f scale,
+                                     boolean useAlphaChannel,
+                                     wColor4s color,
+                                     int antiAliasingMode,
+                                     boolean bilinearFilter,
+                                     boolean trilinearFilter,
+                                     boolean anisotropFilter);
 
     ////////////////////////////////////////////////
     ///wGui///
