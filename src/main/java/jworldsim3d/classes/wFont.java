@@ -23,6 +23,9 @@ public class wFont {
             ws3d.wFontDestroy(pointer);
         }
         pointer = ws3d.wFontLoad(path);
+        if (pointer == null) {
+            System.out.println("Error when loading '" + path + "'");
+        }
     }
     
     public void draw(String text, wVector2i fromPos, wVector2i toPos, wColor4s color) {
@@ -33,7 +36,9 @@ public class wFont {
 
     @Override
     protected void finalize() throws Throwable {
-        super.finalize(); //To change body of generated methods, choose Tools | Templates.
-        ws3d.wFontDestroy(pointer);
+        super.finalize();
+        if (pointer != null) {
+            ws3d.wFontDestroy(pointer);
+        }
     }
 }
