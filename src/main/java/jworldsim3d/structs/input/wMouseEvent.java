@@ -1,8 +1,9 @@
-package jworldsim3d.structs;
+package jworldsim3d.structs.input;
 
 import com.sun.jna.Structure;
 import java.util.Arrays;
 import java.util.List;
+import jworldsim3d.structs.math.wVector2i;
 import lombok.*;
 
 /**
@@ -22,19 +23,7 @@ public class wMouseEvent extends Structure implements Structure.ByValue {
                                                              "position", 
                                                              "isShift", 
                                                              "isControl");
-/*
-    public wMouseEvent() {
-        super();
-    }
-
-    public wMouseEvent(int mouseEventType, float delta, wVector2i position, boolean isShift, boolean isControl) {
-        this.mouseEventType = mouseEventType;
-        this.delta = delta;
-        this.position = position;
-        this.isShift = isShift;
-        this.isControl = isControl;
-    }
-  */  
+    
     @Override
     protected List<String> getFieldOrder() {
         return FIELDS;

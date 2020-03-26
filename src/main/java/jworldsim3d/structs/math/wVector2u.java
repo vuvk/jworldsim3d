@@ -1,4 +1,4 @@
-package jworldsim3d.structs;
+package jworldsim3d.structs.math;
 
 /**
  *

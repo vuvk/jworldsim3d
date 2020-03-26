@@ -1,4 +1,4 @@
-package jworldsim3d.enums;
+package jworldsim3d.enums.input;
 
 /**
  *

@@ -1,4 +1,4 @@
-package jworldsim3d.structs;
+package jworldsim3d.structs.input;
 
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
