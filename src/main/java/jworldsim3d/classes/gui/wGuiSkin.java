@@ -1,6 +1,8 @@
-package jworldsim3d.classes;
+package jworldsim3d.classes.gui;
 
 import com.sun.jna.Pointer;
+import jworldsim3d.classes.ClassWrap;
+import jworldsim3d.classes.wFont;
 import jworldsim3d.enums.gui.wGuiDefaultFont;
 import jworldsim3d.structs.wColor4s;
 

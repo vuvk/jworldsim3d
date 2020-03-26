@@ -140,6 +140,30 @@ public interface LibWS3D extends StdCallLibrary {
     int wGuiSkinGetIcon(Pointer skin, int guiDefaultIcon);
     /*wGuiSkinSpace*/ int wGuiSkinGetType(Pointer skin);
     
+    ///wGuiLabel
+    Pointer wGuiLabelCreate(char[] wcptrText, 
+                            wVector2i minPos,
+                            wVector2i maxPos,
+                            boolean boBorder,
+                            boolean boWordWrap);
+    wVector2i wGuiLabelGetTextSize(Pointer txt);
+    void wGuiLabelSetOverrideFont(Pointer obj, Pointer font);
+    Pointer wGuiLabelGetOverrideFont(Pointer obj);
+    Pointer wGuiLabelGetActiveFont(Pointer obj);
+    void wGuiLabelEnableOverrideColor(Pointer obj, boolean value);
+    boolean wGuiLabelIsOverrideColor(Pointer obj);
+    void wGuiLabelSetOverrideColor(Pointer obj, wColor4s color);
+    wColor4s wGuiLabelGetOverrideColor(Pointer obj);
+    void wGuiLabelSetDrawBackground(Pointer obj, boolean value);
+    boolean wGuiLabelIsDrawBackGround(Pointer obj);
+    void wGuiLabelSetDrawBorder(Pointer obj, boolean value);
+    boolean wGuiLabelIsDrawBorder(Pointer obj);
+    void wGuiLabelSetTextAlignment(Pointer obj, int horGuiAlignment, int verGuiAlignment);
+    void wGuiLabelSetWordWrap(Pointer obj, boolean value);
+    boolean wGuiLabelIsWordWrap(Pointer obj);
+    void wGuiLabelSetBackgroundColor(Pointer obj, wColor4s color);
+    wColor4s wGuiLabelGetBackgroundColor(Pointer obj);
+    
     
     ////////////////////////////////////////////////
     /// wWindow

@@ -1,4 +1,4 @@
-package jworldsim3d.classes;
+package jworldsim3d.classes.gui;
 
 import jworldsim3d.wrapper.LibWS3D;
 
