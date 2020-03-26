@@ -1,5 +1,6 @@
 package jworldsim3d.classes;
 
+import com.sun.jna.Pointer;
 import jworldsim3d.structs.wColor4s;
 import jworldsim3d.structs.math.wVector2i;
 
@@ -7,7 +8,12 @@ import jworldsim3d.structs.math.wVector2i;
  *
  * @author Vuvk
  */
-public class wFont extends ClassWrap {    
+public class wFont extends ClassWrap {  
+    
+    public wFont(Pointer pointer) {
+        setPointer(pointer);
+    }
+    
     public wFont(String path) {
         load(path);
     }

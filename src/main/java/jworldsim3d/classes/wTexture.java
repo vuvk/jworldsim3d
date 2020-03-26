@@ -1,5 +1,6 @@
 package jworldsim3d.classes;
 
+import com.sun.jna.Pointer;
 import jworldsim3d.structs.math.wVector2i;
 
 /**
@@ -7,6 +8,11 @@ import jworldsim3d.structs.math.wVector2i;
  * @author Vuvk
  */
 public class wTexture extends ClassWrap {
+    
+    public wTexture(Pointer pointer) {
+        setPointer(pointer);
+    }
+    
     public wTexture(String name, wVector2i size, int colorFormat) {
         pointer = ws3d.wTextureCreate(name, size, colorFormat);
     }

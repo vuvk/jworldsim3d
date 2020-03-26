@@ -15,6 +15,11 @@ public abstract class ClassWrap {
     
     abstract protected void destroyPointer();
 
+    public void setPointer(Pointer pointer) {
+        destroyPointer();
+        this.pointer = pointer;
+    }
+    
     @Override
     protected void finalize() throws Throwable {
         super.finalize();
