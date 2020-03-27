@@ -39,12 +39,26 @@ public interface LibWS3D extends StdCallLibrary {
     ////////////////////////////////////////////////
     ////wFont
     Pointer wFontLoad(String fontPath);
+    Pointer wFontGetDefault();
     void wFontDraw(Pointer font,
                    char[] text,
                    wVector2i.ByValue fromPos,
                    wVector2i.ByValue toPos,
                    wColor4s.ByValue color);
-    void wFontDestroy(Pointer font);
+    void wFontDestroy(Pointer font);    
+    wVector2u.ByValue wFontGetTextSize(Pointer font, char[] text);
+    void wFontSetKerningSize(Pointer font, wVector2u.ByValue kerning);
+    wVector2u.ByValue wFontGetKerningSize(Pointer font);
+    int wFontGetCharacterFromPos(Pointer font, char[] text, int xPixel);
+    void wFontSetInvisibleCharacters(Pointer font, char[] s);
+    Pointer wFontLoadFromTTF(String fontPath, int size, boolean antialias, boolean transparency);
+    void wFontDrawAsTTF(Pointer font,
+                        char[] wcptrText,
+                        wVector2i.ByValue fromPos,
+                        wVector2i.ByValue toPos,
+                        wColor4s.ByValue color,
+                        boolean hcenter,
+                        boolean vcenter);
     
    
     ////////////////////////////////////////////////
