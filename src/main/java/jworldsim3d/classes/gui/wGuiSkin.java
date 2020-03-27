@@ -17,31 +17,31 @@ public class wGuiSkin extends wGuiObject {
     } 
     
     public wGuiSkin(int guiSkinSpace) {
-        pointer = ws3d.wGuiSkinCreate(guiSkinSpace);
+        pointer = WS3D.wGuiSkinCreate(guiSkinSpace);
     }
     
     public wColor4s getColor(int guiDefaultColor) {
-        return ws3d.wGuiSkinGetColor(pointer, guiDefaultColor);
+        return WS3D.wGuiSkinGetColor(pointer, guiDefaultColor);
     }
     
     public void setColor(int guiDefaultColor, wColor4s color) {
-        ws3d.wGuiSkinSetColor(pointer, guiDefaultColor, color.ByValue());
+        WS3D.wGuiSkinSetColor(pointer, guiDefaultColor, color.ByValue());
     }
     
     public void setSize(int guiDefaultSize, int newSize) {
-        ws3d.wGuiSkinSetSize(pointer, guiDefaultSize, newSize);
+        WS3D.wGuiSkinSetSize(pointer, guiDefaultSize, newSize);
     }
     
     public int getSize(int guiDefaultSize) {
-        return ws3d.wGuiSkinGetSize(pointer, guiDefaultSize);
+        return WS3D.wGuiSkinGetSize(pointer, guiDefaultSize);
     }
     
     public String getDefaultText(int guiDefaultText) {
-        return new String(ws3d.wGuiSkinGetDefaultText(pointer, guiDefaultText));
+        return new String(WS3D.wGuiSkinGetDefaultText(pointer, guiDefaultText));
     }
     
     public void setDefaultText(int guiDefaultText, String newText) {
-        ws3d.wGuiSkinSetDefaultText(pointer, guiDefaultText, (newText + '\0').toCharArray());
+        WS3D.wGuiSkinSetDefaultText(pointer, guiDefaultText, (newText + '\0').toCharArray());
     }
     
     public void setFont(wFont font) {
@@ -49,7 +49,7 @@ public class wGuiSkin extends wGuiObject {
     }
     
     public void setFont(wFont font, int guiDefaultFont) {
-        ws3d.wGuiSkinSetFont(pointer, font.getPointer(), guiDefaultFont);
+        WS3D.wGuiSkinSetFont(pointer, font.getPointer(), guiDefaultFont);
     }
     
     public wFont getFont() {
@@ -57,21 +57,21 @@ public class wGuiSkin extends wGuiObject {
     }
     
     public wFont getFont(int guiDefaultFont) {
-        return new wFont(ws3d.wGuiSkinGetFont(pointer, guiDefaultFont));
+        return new wFont(WS3D.wGuiSkinGetFont(pointer, guiDefaultFont));
     }
     
     //void wGuiSkinSetSpriteBank(Pointer skin, Pointer bank);
     //Pointer wGuiSkinGetSpriteBank(Pointer skin);
     
     public void setIcon(int guiDefaultIcon, int index) {
-        ws3d.wGuiSkinSetIcon(pointer, guiDefaultIcon, index);
+        WS3D.wGuiSkinSetIcon(pointer, guiDefaultIcon, index);
     }
     
     public int getIcon(int guiDefaultIcon) {
-        return ws3d.wGuiSkinGetIcon(pointer, guiDefaultIcon);
+        return WS3D.wGuiSkinGetIcon(pointer, guiDefaultIcon);
     }
         
     public int getType() {
-        return ws3d.wGuiSkinGetType(pointer);
+        return WS3D.wGuiSkinGetType(pointer);
     } 
 }

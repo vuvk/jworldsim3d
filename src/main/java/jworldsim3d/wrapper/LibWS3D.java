@@ -5,6 +5,10 @@ import com.sun.jna.Pointer;
 import com.sun.jna.win32.StdCallLibrary;
 import jworldsim3d.Constants;
 import jworldsim3d.structs.gui.wGuiEvent;
+import jworldsim3d.structs.input.wJoystickEvent;
+import jworldsim3d.structs.input.wJoystickInfo;
+import jworldsim3d.structs.input.wKeyEvent;
+import jworldsim3d.structs.input.wMouseEvent;
 import jworldsim3d.structs.math.wVector2f;
 import jworldsim3d.structs.wColor4s;
 import jworldsim3d.structs.math.wVector2i;
@@ -35,6 +39,41 @@ public interface LibWS3D extends StdCallLibrary {
     boolean wEngineStop(boolean closeDevice);
     void wEngineSetFPS(int limit);
     int wEngineGetFPS();
+    
+    ////////////////////////////////////////////////    
+    ///wInput///
+    ///keyboard///
+    ///Get character without waiting for Return to be pressed.
+    boolean wInputWaitKey();
+    boolean wInputIsKeyEventAvailable();
+    wKeyEvent.ByReference wInputReadKeyEvent();
+    boolean wInputIsKeyUp(int keyCode);
+    boolean wInputIsKeyHit(int keyCode);
+    boolean wInputIsKeyPressed(int keyCode);
+    ///mouse///
+    boolean wInputIsMouseEventAvailable();
+    wMouseEvent.ByReference wInputReadMouseEvent();
+    void wInputSetCursorVisible(boolean boShow );
+    boolean wInputIsCursorVisible();
+    void wInputSetMousePosition(wVector2i.ByReference position);
+    void wInputGetMousePosition(wVector2i.ByReference position);
+    void wInputSetMouseLogicalPosition(wVector2f.ByReference position);
+    void wInputGetMouseLogicalPosition(wVector2f.ByReference position);
+    float wInputGetMouseWheel();
+    void wInputGetMouseDelta(wVector2i.ByReference deltaPos);
+    boolean wInputIsMouseUp(int mouseButtons);
+    boolean wInputIsMouseHit(int mouseButtons);
+    boolean wInputIsMousePressed(int mouseButtons);
+    int wInputGetMouseX();
+    int wInputGetMouseY();
+    int wInputGetMouseDeltaX();
+    int wInputGetMouseDeltaY();
+    ///joystick///
+    boolean wInputActivateJoystick();
+    int wInputGetJoysitcksCount();
+    void wInputGetJoystickInfo(int joyIndex, wJoystickInfo.ByReference joyInfo);
+    boolean wInputIsJoystickEventAvailable();
+    wJoystickEvent.ByReference wInputReadJoystickEvent();
     
     ////////////////////////////////////////////////
     ////wFont

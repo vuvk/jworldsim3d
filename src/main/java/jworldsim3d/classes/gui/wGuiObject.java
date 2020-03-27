@@ -5,34 +5,34 @@ import jworldsim3d.classes.ClassWrap;
 
 /**
  *
- * @author user
+ * @author Vuvk
  */
 public abstract class wGuiObject extends ClassWrap {
     
     public void setId(int id) {
-        ws3d.wGuiObjectSetId(pointer, id);
+        WS3D.wGuiObjectSetId(pointer, id);
     }
     
     public int getId() {
-        return ws3d.wGuiObjectGetId(pointer);
+        return WS3D.wGuiObjectGetId(pointer);
     }
     
     public void setName(String name) {
-        ws3d.wGuiObjectSetName(pointer, name);
+        WS3D.wGuiObjectSetName(pointer, name);
     }
     
     public boolean isHovered() {
-        return ws3d.wGuiObjectIsHovered(pointer);
+        return WS3D.wGuiObjectIsHovered(pointer);
     }
     
     public String getName() {
-        return ws3d.wGuiObjectGetName(pointer);
+        return WS3D.wGuiObjectGetName(pointer);
     }
 
     @Override
     protected void destroyPointer() {
         if (pointer != null) {
-            //ws3d.wGuiObjectDestroy(pointer);
+            //WS3D.wGuiObjectDestroy(pointer);
         }
     }
 }

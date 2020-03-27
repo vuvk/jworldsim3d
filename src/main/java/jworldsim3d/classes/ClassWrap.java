@@ -9,7 +9,7 @@ import lombok.*;
  * @author Vuvk
  */
 public abstract class ClassWrap {
-    protected final LibWS3D ws3d = LibWS3D.INSTANCE;  
+    protected final LibWS3D WS3D = LibWS3D.INSTANCE;  
     
     @Getter protected Pointer pointer = null;
     

@@ -17,74 +17,74 @@ public class wGuiLabel extends wGuiObject {
     }
     
     public wGuiLabel(String text, wVector2i minPos, wVector2i maxPos, boolean boBorder, boolean boWordWrap) {
-        pointer = ws3d.wGuiLabelCreate((text + '\0').toCharArray(), minPos.ByValue(), maxPos.ByValue(), boBorder, boWordWrap);
+        pointer = WS3D.wGuiLabelCreate((text + '\0').toCharArray(), minPos.ByValue(), maxPos.ByValue(), boBorder, boWordWrap);
     }
     
     public wVector2i getTextSize() {
-        return ws3d.wGuiLabelGetTextSize(pointer);
+        return WS3D.wGuiLabelGetTextSize(pointer);
     }
     
     public void setOverrideFont(wFont font) {
-        ws3d.wGuiLabelSetOverrideFont(pointer, font.getPointer());
+        WS3D.wGuiLabelSetOverrideFont(pointer, font.getPointer());
     }
     
     public wFont getOverrideFont() {
-        return new wFont(ws3d.wGuiLabelGetOverrideFont(pointer));
+        return new wFont(WS3D.wGuiLabelGetOverrideFont(pointer));
     }
     
     public wFont getActiveFont() {
-        return new wFont(ws3d.wGuiLabelGetActiveFont(pointer));
+        return new wFont(WS3D.wGuiLabelGetActiveFont(pointer));
     }
     
     public void enableOverrideColor(boolean value) {
-        ws3d.wGuiLabelEnableOverrideColor(pointer, value);
+        WS3D.wGuiLabelEnableOverrideColor(pointer, value);
     }
     
     public boolean isOverrideColor() {
-        return ws3d.wGuiLabelIsOverrideColor(pointer);
+        return WS3D.wGuiLabelIsOverrideColor(pointer);
     }
     
     public void setOverrideColor(wColor4s color) {
-        ws3d.wGuiLabelSetOverrideColor(pointer, color.ByValue());
+        WS3D.wGuiLabelSetOverrideColor(pointer, color.ByValue());
     }
     
     public wColor4s getOverrideColor() {
-        return ws3d.wGuiLabelGetOverrideColor(pointer);
+        return WS3D.wGuiLabelGetOverrideColor(pointer);
     }
     
     public void setDrawBackground(boolean value) {
-        ws3d.wGuiLabelSetDrawBackground(pointer, value);
+        WS3D.wGuiLabelSetDrawBackground(pointer, value);
     }
     
     public boolean wGuiLabelIsDrawBackGround() {
-        return ws3d.wGuiLabelIsDrawBackGround(pointer);
+        return WS3D.wGuiLabelIsDrawBackGround(pointer);
     }
     
     public void setDrawBorder(boolean value) {
-        ws3d.wGuiLabelSetDrawBorder(pointer, value);
+        WS3D.wGuiLabelSetDrawBorder(pointer, value);
     }
     
     public boolean wGuiLabelIsDrawBorder() {
-        return ws3d.wGuiLabelIsDrawBorder(pointer);
+        return WS3D.wGuiLabelIsDrawBorder(pointer);
     }
     
     public void wGuiLabelSetTextAlignment(int horGuiAlignment, int verGuiAlignment) {
-        ws3d.wGuiLabelSetTextAlignment(pointer, horGuiAlignment, verGuiAlignment);
+        WS3D.wGuiLabelSetTextAlignment(pointer, horGuiAlignment, verGuiAlignment);
     }
     
     public void setWordWrap(boolean value) {
-        ws3d.wGuiLabelSetWordWrap(pointer, value);
+        WS3D.wGuiLabelSetWordWrap(pointer, value);
     }
     
     public boolean isWordWrap() {
-        return ws3d.wGuiLabelIsWordWrap(pointer);
+        return WS3D.wGuiLabelIsWordWrap(pointer);
     }
     
     public void setBackgroundColor(wColor4s color) {
-        ws3d.wGuiLabelSetBackgroundColor(pointer, color.ByValue());
+        WS3D.wGuiLabelSetBackgroundColor(pointer, color.ByValue());
     }
     
     public wColor4s getBackgroundColor() {
-        return ws3d.wGuiLabelGetBackgroundColor(pointer);
+        return WS3D.wGuiLabelGetBackgroundColor(pointer);
     }
 }

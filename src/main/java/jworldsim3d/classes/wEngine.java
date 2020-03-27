@@ -9,7 +9,7 @@ import jworldsim3d.wrapper.LibWS3D;
  * @author Vuvk
  */
 public final class wEngine {
-    private final static LibWS3D ws3d = LibWS3D.INSTANCE;
+    private final static LibWS3D WS3D = LibWS3D.INSTANCE;
     
     public static boolean start() { 
         return start(wDriverTypes.wDRT_SOFTWARE, wVector2u.DEFAULT_SCREENSIZE); 
@@ -26,23 +26,23 @@ public final class wEngine {
                                 boolean boShadows,
                                 boolean boCaptureEvents,
                                 boolean vsync) {
-        return ws3d.wEngineStart(iDevice, size.ByValue(), iBPP, boFullscreen, boShadows, boCaptureEvents, vsync);
+        return WS3D.wEngineStart(iDevice, size.ByValue(), iBPP, boFullscreen, boShadows, boCaptureEvents, vsync);
     }
     
     public static void closeByEsc() {
-        ws3d.wEngineCloseByEsc();
+        WS3D.wEngineCloseByEsc();
     }
     
     public static void yield() {
-        ws3d.wEngineYield();
+        WS3D.wEngineYield();
     }
 
     public static boolean isRunning() {
-        return ws3d.wEngineRunning();
+        return WS3D.wEngineRunning();
     }
     
     public static void sleep(int ms, boolean pauseTimer) {
-        ws3d.wEngineSleep(ms, pauseTimer);
+        WS3D.wEngineSleep(ms, pauseTimer);
     }
     
     public static void sleep(int ms) {
@@ -50,7 +50,7 @@ public final class wEngine {
     }
 
     public static boolean stop(boolean closeDevice) {
-        return ws3d.wEngineStop(closeDevice);
+        return WS3D.wEngineStop(closeDevice);
     }
     
     public static boolean stop() { 
@@ -58,11 +58,11 @@ public final class wEngine {
     }
     
     public static void setFpsLimit(int limit) {
-        ws3d.wEngineSetFPS(limit);
+        WS3D.wEngineSetFPS(limit);
     }
     
     public static int getFps() {
-        return ws3d.wEngineGetFPS();
+        return WS3D.wEngineGetFPS();
     }
     
     private wEngine() {}

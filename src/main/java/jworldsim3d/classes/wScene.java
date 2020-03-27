@@ -8,10 +8,10 @@ import jworldsim3d.wrapper.LibWS3D;
  * @author Vuvk
  */
 public final class wScene {
-    private final static LibWS3D ws3d = LibWS3D.INSTANCE;    
+    private final static LibWS3D WS3D = LibWS3D.INSTANCE;    
     
     public static boolean begin(wColor4s color) {
-        return ws3d.wSceneBegin(color.ByValue());        
+        return WS3D.wSceneBegin(color.ByValue());        
     }
     
     public static boolean begin() {
@@ -19,11 +19,11 @@ public final class wScene {
     }
     
     public static void drawAll() {
-        ws3d.wSceneDrawAll();        
+        WS3D.wSceneDrawAll();        
     }
     
     public static boolean end() {
-        return ws3d.wSceneEnd();
+        return WS3D.wSceneEnd();
     } 
     
     private wScene(){}

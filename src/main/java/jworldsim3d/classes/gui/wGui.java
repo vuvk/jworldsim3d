@@ -6,45 +6,45 @@ import jworldsim3d.wrapper.LibWS3D;
 
 /**
  *
- * @author user
+ * @author Vuvk
  */
 public final class wGui {
-    private final static LibWS3D ws3d = LibWS3D.INSTANCE;
+    private final static LibWS3D WS3D = LibWS3D.INSTANCE;
     
     public static void drawAll() {
-        ws3d.wGuiDrawAll();
+        WS3D.wGuiDrawAll();
     }
     
     public static void destroyAll() {
-        ws3d.wGuiDestroyAll();
+        WS3D.wGuiDestroyAll();
     }
     
     public static boolean isEventAvailable() {
-        return ws3d.wGuiIsEventAvailable();
+        return WS3D.wGuiIsEventAvailable();
     }
     
     public static wGuiEvent readEvent() {
-        return ws3d.wGuiReadEvent();
+        return WS3D.wGuiReadEvent();
     }
     
     public static boolean load(String fileName, wGuiObject start) {
-        return ws3d.wGuiLoad(fileName, start.getPointer());
+        return WS3D.wGuiLoad(fileName, start.getPointer());
     }
     
     public static boolean save(String fileName, wGuiObject start) {
-        return ws3d.wGuiSave(fileName, start.getPointer());
+        return WS3D.wGuiSave(fileName, start.getPointer());
     }
     
     public static wGuiSkin getSkin() {
-        return new wGuiSkin(ws3d.wGuiGetSkin());
+        return new wGuiSkin(WS3D.wGuiGetSkin());
     }
     
     public static void setSkin(wGuiSkin skin) {
-        ws3d.wGuiSetSkin(skin.getPointer());
+        WS3D.wGuiSetSkin(skin.getPointer());
     }
     
     public static String getLastSelectedFile() {
-        return new String(ws3d.wGuiGetLastSelectedFile());
+        return new String(WS3D.wGuiGetLastSelectedFile());
     }
     
     ///Returns the element which holds the focus.
