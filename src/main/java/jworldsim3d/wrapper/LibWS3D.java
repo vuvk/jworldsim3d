@@ -432,7 +432,77 @@ public interface LibWS3D extends StdCallLibrary {
     void wMaterialSetAntiAliasingMode(Pointer material, int antiAliasingMode);
     int wMaterialGetAntiAliasingMode(Pointer material);
     
-    ////////////////////////////////////////////////
+    ////////////////////////////////////////////////    
+    ///wCamera///
+    Pointer wCameraCreate(wVector3f.ByValue pos, wVector3f.ByValue target);
+    /*
+    wNode* wMayaCameraCreate(Float32 rotateSpeed,
+                             Float32 zoomSpeed,
+                             Float32 moveSpeed);
+
+    void wCameraSetTarget(wNode* camera,
+                          wVector3f target);
+
+    wVector3f wCameraGetTarget(wNode* camera);
+
+    wVector3f wCameraGetUpDirection(wNode* camera);
+
+    void wCameraSetUpDirection(wNode* camera,
+                               wVector3f upDir);
+
+    void wCameraGetOrientation(wNode* camera,
+                               wVector3f* upDir,
+                               wVector3f* forwardDir,
+                               wVector3f* rightDir);
+
+    #ifdef __cplusplus
+    void wCameraSetClipDistance(wNode* camera,
+                                Float32 farDistance,
+                                Float32 nearDistance=1.f);
+    #else
+    void wCameraSetClipDistance(wNode* camera,
+                                Float32 farDistance,
+                                Float32 nearDistance);
+    #endif // __cplusplus
+
+    void wCameraSetActive(wNode* camera);
+
+    void wCameraSetFov(wNode* camera,
+                       Float32 fov );
+
+    Float32 wCameraGetFov(wNode* camera);
+
+    void wCameraSetOrthogonal(wNode* camera,
+                              wVector3f vec);
+
+    void wCameraRevolve(wNode* camera,
+                        wVector3f angleDeg,
+                        wVector3f offset);
+
+    void wCameraSetUpAtRightAngle(wNode* camera );
+
+    void wCameraSetAspectRatio(wNode* camera,
+                               Float32 aspectRatio );
+
+    void wCameraSetInputEnabled(wNode* camera,
+                                bool value);
+
+    bool wCameraIsInputEnabled(wNode* camera);
+
+    #ifdef __cplusplus
+    void wCameraSetCollisionWithScene(wNode* camera,
+                                      wVector3f radius,
+                                      wVector3f gravity={0,-10,0},
+                                      wVector3f offset={0,0,0},
+                                      Float32 slidingValue=0.0005f);
+    #else
+    void wCameraSetCollisionWithScene(wNode* camera,
+                                      wVector3f radius,
+                                      wVector3f gravity,
+                                      wVector3f offset,
+                                      Float32 slidingValue);
+    #endif // __cplusplus
+    */
 
     ////////////////////////////////////////////////
     ///wGui///
