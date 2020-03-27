@@ -34,7 +34,7 @@ public class wMesh extends ClassWrap {
     }
     
     public void load(String path) {
-        load(path);
+        load(path, false);
     }
     
     public void load(String path, boolean tangents) {
