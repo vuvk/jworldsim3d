@@ -26,7 +26,7 @@ public class wVector2f extends wVector2 {
     public static class ByReference extends wVector2f implements Structure.ByReference {
         public ByReference() {
         }
-        public ByReference(int x, int y) {
+        public ByReference(float x, float y) {
             super(x, y);
         }
         public ByReference(wVector2f vector) {
