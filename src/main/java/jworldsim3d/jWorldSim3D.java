@@ -16,9 +16,9 @@ public final class jWorldSim3D {
         
         String osDir = null;
         if (osName.indexOf("win") >= 0) {
-            osDir = "win";
+            osDir = "win" + File.separator;
         } else if (osName.indexOf("nix") >= 0) {
-            osDir = "linux";        
+            osDir = "linux" + File.separator;        
         }
         
         if (osDir == null) {
@@ -28,9 +28,9 @@ public final class jWorldSim3D {
         
         String initPath = Paths.get(".").toAbsolutePath().normalize().toString();
         if (System.getProperty("os.arch").equals("x86")) {
-            initPath += File.separator + osDir + "-x86";
+            initPath += File.separator + osDir + "x86";
         } else {
-            initPath += File.separator + osDir + "-x86_64";            
+            initPath += File.separator + osDir + "x86_64";            
         }        
         
         System.setProperty("jna.library.path", initPath);
