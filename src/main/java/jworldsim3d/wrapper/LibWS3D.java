@@ -112,11 +112,11 @@ public interface LibWS3D extends StdCallLibrary {
     void wTextureUnlock(Pointer texture);
     void wTextureSave(Pointer texture, String file);
 //    wImage* wTextureConvertToImage(Pointer texture);
-//    void wTextureGetInformation(Pointer texture, wVector2u* size, Integer pitch, wColorFormat* format);
+//    void wTextureGetInformation(Pointer texture, wVector2u.ByReference size, Integer pitch, wColorFormat* format);
     void wTextureMakeNormalMap(Pointer texture, float amplitude);
  /*   int wTexturesSetBlendMode(Pointer texturedest,
                               Pointer texturesrc,
-                              wVector2i offset,
+                              wVector2i.ByValue offset,
                               wBlendOperation operation );
 */
     void wTextureSetColorKey(Pointer texture, wColor4s.ByValue key);
@@ -198,15 +198,15 @@ public interface LibWS3D extends StdCallLibrary {
                                   boolean  smooth,
                                   boolean  angleWeighted);
 /*    Pointer wMeshCreateHillPlane(String meshname,
-                                wVector2f tilesSize,
-                                wVector2i tilesCount,
+                                wVector2f.ByValue tilesSize,
+                                wVector2i.ByValue tilesCount,
                                 wMaterial* material,
                                 float hillHeight,
                                 wVector2f.ByValue countHills,
                                 wVector2f.ByValue texRepeatCount);*/
     Pointer wMeshCreateArrow(String name,
-                             wColor4s.ByValue  cylinderColor,
-                             wColor4s.ByValue  coneColor,
+                             wColor4s.ByValue cylinderColor,
+                             wColor4s.ByValue coneColor,
                              int tesselationCylinder,
                              int tesselationCone,
                              float height,
@@ -270,6 +270,125 @@ public interface LibWS3D extends StdCallLibrary {
     boolean  wMeshIsEmpty(Pointer mesh); 
     int wMeshGetBuffersCount(Pointer mesh, int iFrame);
     Pointer wMeshGetBuffer(Pointer mesh, int iFrame, int index);
+    
+    ////////////////////////////////////////////////    
+    ///wNode///
+    ///primitives///
+    Pointer wNodeCreateEmpty();
+    Pointer wNodeCreateCube(float size, wColor4s.ByValue color);
+    Pointer wNodeCreateSphere(float radius,
+                             int polyCount,
+                             wColor4s.ByValue color);
+    Pointer wNodeCreateCylinder(int tesselation,
+                               float radius,
+                               float length,
+                               wColor4s.ByValue color);
+    Pointer wNodeCreateCone(int tesselation,
+                           float radius,
+                           float length,
+                           wColor4s.ByValue clorTop,
+                           wColor4s.ByValue clorBottom);
+    Pointer wNodeCreatePlane(float size,
+                            int tileCount,
+                            wColor4s.ByValue color);
+    Pointer wNodeCreateFromMesh(Pointer mesh);
+    Pointer wNodeCreateFromStaticMesh(Pointer mesh);
+    Pointer wNodeCreateFromMeshAsOctree(Pointer vptrMesh,
+                                        int minimalPolysPerNode,
+                                        boolean alsoAddIfMeshPointerZero);
+    Pointer wNodeCreateFromBatchingMesh(Pointer batchMesh);
+    Pointer wNodeCreateFromBatchingMeshAsOctree(Pointer batchMesh,
+                                                int minimalPolysPerNode,
+                                                boolean alsoAddIfMeshPointerZero);
+    void wNodeRemoveCollision(Pointer node, Pointer selector);
+    void wNodeAddCollision(Pointer node, Pointer selector);    
+    void wNodeSetDecalsEnabled(Pointer node);
+    void wNodeSetParent(Pointer node, Pointer parent);
+    Pointer wNodeGetParent(Pointer node);
+    void wNodeSetReadOnlyMaterials(Pointer node, boolean readonly);
+    boolean wNodeIsReadOnlyMaterials(Pointer node);
+    Pointer wNodeGetFirstChild(Pointer node, int[] iterator);
+    int wNodeGetChildsCount(Pointer node, int[] iterator);
+    Pointer wNodeGetNextChild(Pointer node, int[] iterator);
+    boolean wNodeIsLastChild(Pointer node, int[] iterator);
+    void wNodeSetId(Pointer node, int id);
+    int wNodeGetId(Pointer node);
+    void wNodeSetName(Pointer node, String  name);
+    String  wNodeGetName(Pointer node);
+    void wNodeSetUserData(Pointer node, Pointer newData);
+    Pointer wNodeGetUserData(Pointer node);
+    void wNodeSetDebugMode(Pointer node, int debugMode);
+    void wNodeSetDebugDataVisible(Pointer node, boolean value);
+    int wNodeGetMaterialsCount(Pointer node);
+    Pointer wNodeGetMaterial(Pointer node, int matIndex);
+    void wNodeSetPosition(Pointer node, wVector3f.ByValue position);
+    wVector3f.ByValue wNodeGetPosition(Pointer node);
+    wVector3f.ByValue wNodeGetAbsolutePosition(Pointer node);
+    void wNodeSetRotation (Pointer node, wVector3f.ByValue rotation);
+    void wNodeSetAbsoluteRotation(Pointer node, wVector3f.ByValue rotation);
+    wVector3f.ByValue wNodeGetRotation(Pointer node);
+    wVector3f.ByValue wNodeGetAbsoluteRotation(Pointer node);
+    void wNodeTurn(Pointer Entity, wVector3f.ByValue turn);
+    void wNodeMove(Pointer Entity, wVector3f.ByValue direction);
+    void wNodeRotateToNode(Pointer Entity1, Pointer Entity2);
+    float wNodesGetBetweenDistance(Pointer nodeA, Pointer nodeB);
+    boolean wNodesAreIntersecting(Pointer nodeA, Pointer nodeB);
+    boolean wNodeIsPointInside(Pointer node, wVector3f.ByValue pos);
+    void wNodeDrawBoundingBox(Pointer node, wColor4s.ByValue color);
+    void wNodeGetBoundingBox(Pointer Node, wVector3f.ByReference min, wVector3f.ByReference max);
+    void wNodeGetTransformedBoundingBox(Pointer Node, wVector3f.ByReference min, wVector3f.ByReference max);
+    void wNodeSetScale(Pointer node, wVector3f.ByValue scale);
+    wVector3f.ByValue wNodeGetScale(Pointer node);
+    Pointer wNodeDuplicate(Pointer entity);
+    Pointer wNodeGetJointByName(Pointer node, String node_name);
+    Pointer wNodeGetJointById( Pointer node,int Id);
+    int wNodeGetJointsCount( Pointer node);
+    void wNodeSetJointSkinningSpace(Pointer bone, int boneSkinningSpace);
+    int wNodeGetJointSkinningSpace(Pointer bone);
+    void wNodeSetRenderFromIdentity(Pointer node, boolean value);
+    void wNodeAddShadowVolume(Pointer node,
+                              Pointer mesh,
+                              boolean zfailMethod,
+                              float infinity,
+                              boolean oldStyle);
+    Pointer wNodeAddShadowVolumeFromMeshBuffer(Pointer nodeParent,
+                                               Pointer meshbuffer,
+                                               boolean zfailMethod,
+                                               float infinity,
+                                               boolean oldStyle);
+    void wNodeUpdateShadow(Pointer shadow);
+    void wNodeSetVisibility(Pointer node, boolean visible );
+    boolean wNodeIsVisible(Pointer node);
+    boolean wNodeIsInView(Pointer node);
+    void wNodeDestroy(Pointer node);
+    void wNodeSetMesh(Pointer node, Pointer mesh);
+    Pointer wNodeGetMesh(Pointer node);
+    void wNodeSetRotationPositionChange(Pointer node,
+                                        wVector3f.ByValue angles,
+                                        wVector3f.ByValue offset,
+                                        wVector3f.ByReference forwardStore,
+                                        wVector3f.ByReference upStore,
+                                        int numOffsets,
+                                        wVector3f.ByReference offsetStore );
+    void wNodeSetCullingState(Pointer node, int cullingState);
+    int wNodeGetType(Pointer node);
+    void wNodeSetAnimationRange(Pointer node, wVector2i.ByValue range);
+    void wNodePlayMD2Animation(Pointer node, int md2AnimationType);
+    void wNodeSetAnimationSpeed(Pointer node, float fSpeed);
+    void wNodeSetAnimationFrame(Pointer node, float fFrame);
+    float wNodeGetAnimationFrame(Pointer node);
+    void wNodeSetTransitionTime(Pointer node, float fTime);
+    void wNodeAnimateJoints(Pointer node);
+    void wNodeSetJointMode(Pointer node, int jointMode);
+    void wNodeSetAnimationLoopMode(Pointer node, boolean value);
+    void wNodeDestroyAllAnimators(Pointer node);
+    int wNodeGetAnimatorsCount(Pointer node);
+    Pointer wNodeGetFirstAnimator(Pointer node);
+    Pointer wNodeGetLastAnimator(Pointer node);
+    Pointer wNodeGetAnimatorByIndex(Pointer node, int index);
+    void wNodeOnAnimate(Pointer node,int timeMs);
+    void wNodeDraw(Pointer node);
+    void wNodeUpdateAbsolutePosition (Pointer node);
 
     ////////////////////////////////////////////////
     ///wGui///
