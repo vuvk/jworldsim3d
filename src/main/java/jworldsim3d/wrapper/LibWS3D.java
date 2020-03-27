@@ -431,6 +431,8 @@ public interface LibWS3D extends StdCallLibrary {
     int wMaterialGetColorMask(Pointer material);
     void wMaterialSetAntiAliasingMode(Pointer material, int antiAliasingMode);
     int wMaterialGetAntiAliasingMode(Pointer material);
+    
+    ////////////////////////////////////////////////
 
     ////////////////////////////////////////////////
     ///wGui///

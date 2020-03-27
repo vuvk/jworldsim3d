@@ -17,7 +17,7 @@ public class wTexture extends ClassWrap {
     }
     
     public wTexture(String name, wVector2i size, int colorFormat) {
-        pointer = WS3D.wTextureCreate(name, size.ByValue(), colorFormat);
+        setPointer(WS3D.wTextureCreate(name, size.ByValue(), colorFormat));
     }
     
     public wTexture(String path) {
