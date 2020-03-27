@@ -197,13 +197,13 @@ public interface LibWS3D extends StdCallLibrary {
                                   boolean  recalculateNormals,
                                   boolean  smooth,
                                   boolean  angleWeighted);
-/*    Pointer wMeshCreateHillPlane(String meshname,
+    Pointer wMeshCreateHillPlane(String meshname,
                                 wVector2f.ByValue tilesSize,
                                 wVector2i.ByValue tilesCount,
-                                wMaterial* material,
+                                Pointer material,
                                 float hillHeight,
                                 wVector2f.ByValue countHills,
-                                wVector2f.ByValue texRepeatCount);*/
+                                wVector2f.ByValue texRepeatCount);
     Pointer wMeshCreateArrow(String name,
                              wColor4s.ByValue cylinderColor,
                              wColor4s.ByValue coneColor,
@@ -389,6 +389,48 @@ public interface LibWS3D extends StdCallLibrary {
     void wNodeOnAnimate(Pointer node,int timeMs);
     void wNodeDraw(Pointer node);
     void wNodeUpdateAbsolutePosition (Pointer node);
+    
+    ////////////////////////////////////////////////    
+    ///wMaterial///
+    void wMaterialSetTexture(Pointer material, int texIdx, Pointer texture);
+    Pointer wMaterialGetTexture(Pointer material, int texIdx);
+    void wMaterialScaleTexture(Pointer material, int texIdx, wVector2f.ByValue scale);
+    void wMaterialScaleTextureFromCenter(Pointer material, int texIdx, wVector2f.ByValue scale);
+    void wMaterialTranslateTexture(Pointer material, int texIdx, wVector2f.ByValue translate);
+    void wMaterialTranslateTextureTransposed(Pointer material, int texIdx, wVector2f.ByValue translate);
+    void wMaterialRotateTexture(Pointer material, int texIdx, float angle);
+    void wMaterialSetTextureWrapUMode(Pointer material, int texIdx, int textureClamp);
+    int wMaterialGetTextureWrapUMode(Pointer material, int texIdx);
+    void wMaterialSetTextureWrapVMode(Pointer material, int texIdx, int textureClamp);
+    int wMaterialGetTextureWrapVMode(Pointer material, int texIdx);
+    void wMaterialSetTextureLodBias(Pointer material, int texIdx, int lodBias);
+    int wMaterialGetTextureLodBias(Pointer material, int texIdx);
+    void wMaterialSetFlag(Pointer material, int materialFlag, boolean boValue);
+    boolean wMaterialGetFlag(Pointer material, int materialFlag);
+    void wMaterialSetType(Pointer material, int materialType);
+    void wMaterialSetShininess(Pointer material, float shininess);
+    float wMaterialGetShininess(Pointer material);
+    void wMaterialSetVertexColoringMode(Pointer material, int colorMaterial);
+    int wMaterialGetVertexColoringMode(Pointer material);
+    void wMaterialSetSpecularColor(Pointer material, wColor4s.ByValue color);
+    wColor4s.ByValue wMaterialGetSpecularColor(Pointer material);
+    void wMaterialSetDiffuseColor(Pointer material, wColor4s.ByValue color);
+    wColor4s.ByValue wMaterialGetDiffuseColor(Pointer material);
+    void wMaterialSetAmbientColor(Pointer material, wColor4s.ByValue color);
+    wColor4s.ByValue wMaterialGetAmbientColor(Pointer material);
+    void wMaterialSetEmissiveColor(Pointer material, wColor4s.ByValue color); 
+    wColor4s.ByValue wMaterialGetEmissiveColor(Pointer material);
+    void wMaterialSetTypeParameter(Pointer material, float param1);
+    float wMaterialGetTypeParameter(Pointer material);
+    void wMaterialSetTypeParameter2(Pointer material, float param2);
+    float wMaterialGetTypeParameter2(Pointer material);
+    void wMaterialSetBlendingMode(Pointer material, int blendFactorSrc, int blendFactorDest);
+    void wMaterialSetLineThickness(Pointer material, float lineThickness);
+    float wMaterialGetLineThickness(Pointer material);
+    void wMaterialSetColorMask(Pointer material, int colorPlane);
+    int wMaterialGetColorMask(Pointer material);
+    void wMaterialSetAntiAliasingMode(Pointer material, int antiAliasingMode);
+    int wMaterialGetAntiAliasingMode(Pointer material);
 
     ////////////////////////////////////////////////
     ///wGui///
