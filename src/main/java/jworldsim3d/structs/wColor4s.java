@@ -49,6 +49,17 @@ public class wColor4s extends wColor4 {
         this((short)alpha, (short)red, (short)green, (short)blue);
     }
     
+    public void set(short alpha, short red, short green, short blue) {
+        this.alpha = alpha;
+        this.red   = red;
+        this.green = green;
+        this.blue  = blue;
+    }
+    
+    public void set(int alpha, int red, int green, int blue) {
+        set((short)alpha, (short)red, (short)green, (short)blue);
+    }
+    
     public ByReference ByReference() {
         return new ByReference(this);
     }

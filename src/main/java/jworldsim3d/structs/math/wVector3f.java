@@ -21,6 +21,12 @@ public class wVector3f extends wVector3 {
 
     @Getter @Setter public float x, y, z;
     
+    public void set(float x, float y, float z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+    
     public ByReference ByReference() {
         return new ByReference(this);
     }

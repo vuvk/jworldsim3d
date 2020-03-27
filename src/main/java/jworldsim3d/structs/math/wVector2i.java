@@ -15,6 +15,11 @@ public class wVector2i extends wVector2 {
 
     @Getter @Setter public int x, y;
     
+    public void set(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+    
     public ByReference ByReference() {
         return new ByReference(this);
     }
