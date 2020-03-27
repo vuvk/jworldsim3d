@@ -13,6 +13,8 @@ import jworldsim3d.structs.math.wVector2f;
 import jworldsim3d.structs.wColor4s;
 import jworldsim3d.structs.math.wVector2i;
 import jworldsim3d.structs.math.wVector2u;
+import jworldsim3d.structs.math.wVector3f;
+import jworldsim3d.structs.wVert;
 
 /**
  *
@@ -167,6 +169,107 @@ public interface LibWS3D extends StdCallLibrary {
                                      boolean bilinearFilter,
                                      boolean trilinearFilter,
                                      boolean anisotropFilter);
+    
+    ////////////////////////////////////////////////
+    ///wMesh///
+    Pointer wMeshLoad(String cptrFile, boolean ToTangents);
+    Pointer wMeshCreate(String cptrMeshName);
+    void wMeshAddMeshBuffer(Pointer mesh, Pointer meshbuffer);
+    Pointer wMeshCreateSphere(String name, float radius, int polyCount );
+    Pointer wMeshCreateCube();
+    int wMeshSave(Pointer mesh, int meshFileFormat, String filename);//return 0/1/2/3  3- успешно
+    void wMeshDestroy(Pointer mesh);
+    boolean  wMeshSetName(Pointer mesh, String name);
+    String wMeshGetName(Pointer mesh); 
+    int wMeshGetType(Pointer mesh);
+    void wMeshFlipSurface(Pointer mesh);
+    void wMeshMakePlanarTextureMapping(Pointer mesh, float resolution);
+    void wMeshMakePlanarTextureMappingAdvanced(Pointer mesh,
+                                               float resolutionH,
+                                               float resolutionV,
+                                               byte axis,
+                                               wVector3f.ByValue offset);
+    Pointer wMeshCreateStaticWithTangents(Pointer aMesh);
+    void wMeshRecalculateNormals(Pointer mesh,
+                                 boolean  smooth,
+                                 boolean  angleWeighted);
+    void wMeshRecalculateTangents(Pointer mesh,
+                                  boolean  recalculateNormals,
+                                  boolean  smooth,
+                                  boolean  angleWeighted);
+/*    Pointer wMeshCreateHillPlane(String meshname,
+                                wVector2f tilesSize,
+                                wVector2i tilesCount,
+                                wMaterial* material,
+                                float hillHeight,
+                                wVector2f.ByValue countHills,
+                                wVector2f.ByValue texRepeatCount);*/
+    Pointer wMeshCreateArrow(String name,
+                             wColor4s.ByValue  cylinderColor,
+                             wColor4s.ByValue  coneColor,
+                             int tesselationCylinder,
+                             int tesselationCone,
+                             float height,
+                             float heightCylinder,
+                             float widthCylinder,
+                             float widthCone);
+    Pointer wMeshCreateBatching();
+    void wMeshAddToBatching(Pointer meshBatch,
+                            Pointer mesh,
+                            wVector3f.ByValue position,
+                            wVector3f.ByValue rotation,
+                            wVector3f.ByValue scale);
+    void wMeshUpdateBatching(Pointer meshBatch);
+    void wMeshFinalizeBatching(Pointer meshBatch);
+    void wMeshClearBatching(Pointer meshBatch);
+    void wMeshDestroyBatching(Pointer meshBatch);
+    void wMeshEnableHardwareAcceleration(Pointer mesh, int iFrame);
+    int wMeshGetFramesCount(Pointer mesh);
+    int wMeshGetIndicesCount(Pointer mesh, int iFrame, int iMeshBuffer);
+    short[] wMeshGetIndices(Pointer mesh, int iFrame, int iMeshBuffer);
+    void wMeshSetIndices(Pointer mesh, int iFrame, short[] indicies, int iMeshBuffer);
+    int wMeshGetVerticesCount(Pointer mesh, int iFrame, int iMeshBuffer);
+    void wMeshGetVertices(Pointer mesh, int iFrame, wVert[] verts, int iMeshBuffer);
+    int[] wMeshGetVerticesMemory(Pointer mesh, int iFrame, int iMeshBuffer);
+    void wMeshSetVertices(Pointer mesh, int iFrame, wVert[] verts, int iMeshBuffer);
+    void wMeshSetScale(Pointer mesh,
+                       float scale,
+                       int iFrame,
+                       int iMeshBuffer,
+                       Pointer sourceMesh);
+    void wMeshSetRotation(Pointer mesh, wVector3f.ByValue rot);
+    void wMeshSetVerticesColors(Pointer mesh,
+                                int iFrame,
+                                wColor4s.ByReference verticesColor,
+                                int groupCount,
+                                int[] startPos,
+                                int[] endPos,
+                                int iMeshBuffer);
+    void wMeshSetVerticesAlpha(Pointer mesh,
+                               int iFrame,
+                               byte value);
+    void wMeshSetVerticesCoords(Pointer mesh,
+                                int iFrame,
+                                wVector3f.ByReference vertexCoord,
+                                int groupCount,
+                                int[] startPos,
+                                int[] endPos,
+                                int iMeshBuffer);
+    void wMeshSetVerticesSingleColor(Pointer mesh,
+                                     int iFrame,
+                                     wColor4s.ByValue verticesColor,
+                                     int groupCount,
+                                     int[] startPos,
+                                     int[] endPos,
+                                     int iMeshBuffer);
+    void wMeshGetBoundingBox (Pointer mesh,
+                              wVector3f.ByReference min,
+                              wVector3f.ByReference max);
+    Pointer wMeshDuplicate(Pointer src);
+    void wMeshFit(Pointer src, wVector3f.ByValue pivot, wVector3f.ByReference delta);
+    boolean  wMeshIsEmpty(Pointer mesh); 
+    int wMeshGetBuffersCount(Pointer mesh, int iFrame);
+    Pointer wMeshGetBuffer(Pointer mesh, int iFrame, int index);
 
     ////////////////////////////////////////////////
     ///wGui///
